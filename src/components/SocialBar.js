@@ -9,8 +9,6 @@ export const SocialBar = () => {
       <IconButton
         style={{ color: "#0072b1" }}
         target="_blank"
-        disableFocusRipple
-        disableRipple
         href="https://www.linkedin.com/in/carloshzs/"
       >
         <LinkedinIcon fontSize="large" />
@@ -18,8 +16,6 @@ export const SocialBar = () => {
       <IconButton
         // style={{ color: "black", backgroundColor: "transparent" }}
         target="_blank"
-        disableFocusRipple
-        disableRipple
         href="https://github.com/caedhesa"
       >
         <GitHubIcon fontSize="large" />

@@ -28,6 +28,12 @@ export const clearTheme = {
         color: "black",
       },
     },
+    MuiPopover: {
+      paper: {
+        backgroundColor: "transparent",
+        boxShadow: "none",
+      },
+    },
   },
   custom: {
     grid: {
