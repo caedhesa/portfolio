@@ -31,6 +31,9 @@ function App() {
     <Router>
       <ThemeProvider theme={appliedTheme}>
         <Grid container style={appliedTheme.custom.grid}>
+          <Hidden smUp>
+            <BottomBar switchTheme={switchTheme} />
+          </Hidden>
           <Hidden xsDown>
             <Grid style={appliedTheme.custom.gridEnds} item xs={12}>
               <AppBar />
@@ -54,9 +57,9 @@ function App() {
               <Contact /> */}
             </Grid>
           </Hidden>
-          <Grid style={appliedTheme.custom.gridEnds} pb={25} item xs={12}>
+          <Hidden xsDown>
             <BottomBar switchTheme={switchTheme} />
-          </Grid>
+          </Hidden>
         </Grid>
       </ThemeProvider>
     </Router>

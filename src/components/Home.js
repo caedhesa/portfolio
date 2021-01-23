@@ -5,9 +5,13 @@ import Typography from "@material-ui/core/Typography";
 import useTheme from "@material-ui/core/styles/useTheme";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
+import { useTranslation, withTranslation, Trans } from "react-i18next";
+
 export const Home = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
+
+  const { t, i18n } = useTranslation();
 
   return (
     <>
@@ -22,7 +26,9 @@ export const Home = () => {
               padding: matches ? 10 : 5,
             }}
           >
-            <Typography variant="h1">Hi!</Typography>
+            <Typography variant="h1">
+              <Trans i18nKey="title">Hi!</Trans>
+            </Typography>
           </Grid>
           <Grid
             item
@@ -35,9 +41,11 @@ export const Home = () => {
             }}
           >
             <Typography variant="h5" style={{ align: "justify" }}>
-              thanks for taking some time to visit my personal website, in here
-              you will find some information about who i am, what i've done and
-              what i like to do
+              <Trans i18nKey="description.part1">
+                Thanks for taking some time to visit my personal website, in
+                here you will find some information about who I am, what I've
+                done and what I like to do.
+              </Trans>
             </Typography>
           </Grid>
         </Grid>

@@ -28,6 +28,12 @@ export const darkTheme = {
         color: "white",
       },
     },
+    MuiPopover: {
+      paper: {
+        backgroundColor: "transparent",
+        boxShadow: "none",
+      },
+    },
   },
   custom: {
     grid: {
