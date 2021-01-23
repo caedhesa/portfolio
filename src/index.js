@@ -1,9 +1,8 @@
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
-
 import "./i18n";
+import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>

@@ -4,6 +4,7 @@ import {
   List,
   ListItem,
   ListItemText,
+  useMediaQuery,
   IconButton,
   SvgIcon,
 } from "@material-ui/core";
@@ -12,8 +13,13 @@ import Popover from "@material-ui/core/Popover";
 
 import { useTheme } from "@material-ui/core/styles";
 
+import { useTranslation } from "react-i18next";
+
 export const BottomBar = (props) => {
   const theme = useTheme();
+  const { i18n } = useTranslation();
+
+  const matches = useMediaQuery(theme.breakpoints.up("sm"));
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -63,23 +69,33 @@ export const BottomBar = (props) => {
         anchorEl={anchorEl}
         onClose={handleClose}
         anchorOrigin={{
-          vertical: "top",
+          vertical: matches ? "top" : "bottom",
           horizontal: "center",
         }}
         transformOrigin={{
-          vertical: "bottom",
+          vertical: matches ? "bottom" : "top",
           horizontal: "center",
         }}
       >
-        <List component="nav" aria-label="main mailbox folders">
-          <ListItem button>
+        <List
+          component="nav"
+          aria-label="main mailbox folders"
+          style={{ padding: "0px" }}
+        >
+          <ListItem button onClick={() => i18n.changeLanguage("de")}>
             <ListItemText primary="DE" />
           </ListItem>
           <ListItem button>
-            <ListItemText primary="EN" />
+            <ListItemText
+              primary="EN"
+              onClick={() => i18n.changeLanguage("en")}
+            />
           </ListItem>
           <ListItem button>
-            <ListItemText primary="ES" />
+            <ListItemText
+              primary="ES"
+              onClick={() => i18n.changeLanguage("es")}
+            />
           </ListItem>
         </List>
       </Popover>

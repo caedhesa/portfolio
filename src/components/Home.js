@@ -5,12 +5,12 @@ import Typography from "@material-ui/core/Typography";
 import useTheme from "@material-ui/core/styles/useTheme";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
-import { Trans } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 export const Home = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
-
+  const { t } = useTranslation();
   return (
     <>
       <Fade in={true} timeout={2000}>
@@ -24,9 +24,7 @@ export const Home = () => {
               padding: matches ? 10 : 5,
             }}
           >
-            <Typography variant="h1">
-              <Trans i18nKey="title">Hi!</Trans>
-            </Typography>
+            <Typography variant="h1">{t("title")}</Typography>
           </Grid>
           <Grid
             item
@@ -39,11 +37,7 @@ export const Home = () => {
             }}
           >
             <Typography variant="h5" style={{ align: "justify" }}>
-              <Trans i18nKey="description.part1">
-                Thanks for taking some time to visit my personal website, in
-                here you will find some information about who I am, what I've
-                done and what I like to do.
-              </Trans>
+              {t(`description.part1`)}
             </Typography>
           </Grid>
         </Grid>
