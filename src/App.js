@@ -55,9 +55,9 @@ function App() {
           <Hidden smUp>
             <Grid style={appliedTheme.custom.gridFluid} item xs={12}>
               <Home />
-              <Works />
+              {/* <Works />
               <About />
-              <Contact />
+              <Contact /> */}
             </Grid>
           </Hidden>
           <Hidden xsDown>
