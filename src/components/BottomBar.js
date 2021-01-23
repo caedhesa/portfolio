@@ -3,12 +3,9 @@ import {
   Grid,
   List,
   ListItem,
-  ListItemIcon,
   ListItemText,
-  Button,
   IconButton,
   SvgIcon,
-  Typography,
 } from "@material-ui/core";
 import TranslateIcon from "@material-ui/icons/Translate";
 import Popover from "@material-ui/core/Popover";

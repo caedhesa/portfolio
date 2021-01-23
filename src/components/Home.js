@@ -5,13 +5,11 @@ import Typography from "@material-ui/core/Typography";
 import useTheme from "@material-ui/core/styles/useTheme";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
-import { useTranslation, withTranslation, Trans } from "react-i18next";
+import { Trans } from "react-i18next";
 
 export const Home = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
-
-  const { t, i18n } = useTranslation();
 
   return (
     <>
