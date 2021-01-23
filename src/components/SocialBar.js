@@ -7,7 +7,7 @@ export const SocialBar = () => {
   return (
     <>
       <IconButton
-        style={{ color: "#0072b1", backgroundColor: "transparent" }}
+        style={{ color: "#0072b1" }}
         target="_blank"
         disableFocusRipple
         disableRipple
@@ -16,7 +16,7 @@ export const SocialBar = () => {
         <LinkedinIcon fontSize="large" />
       </IconButton>
       <IconButton
-        style={{ color: "black", backgroundColor: "transparent" }}
+        // style={{ color: "black", backgroundColor: "transparent" }}
         target="_blank"
         disableFocusRipple
         disableRipple

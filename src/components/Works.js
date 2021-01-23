@@ -1,12 +1,11 @@
 import React from "react";
-import Avatar from "@material-ui/core/Avatar";
 import { useTheme } from "@material-ui/core/styles";
 import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import Fade from "@material-ui/core/Fade";
+import Grid from "@material-ui/core/Grid";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   root: {
@@ -27,39 +26,41 @@ const useStyles = makeStyles({
 export const Works = () => {
   const theme = useTheme();
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
   console.log(theme);
+  const matches = useMediaQuery(theme.breakpoints.up("sm"));
+  const { t } = useTranslation();
 
   return (
-    <Card className={classes.root} variant="outlined">
-      <CardContent>
-        <Typography
-          className={classes.title}
-          color="textSecondary"
-          gutterBottom
-        >
-          Word of the Day
-        </Typography>
-        <Typography variant="h5" component="h2">
-          <Avatar
-            alt="Carlos H"
-            src="../images/profilepic.jpg"
-            className={theme.custom.large}
-          />
-          be{bull}nev{bull}o{bull}lent
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          adjective
-        </Typography>
-        <Typography variant="body2" component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
+    <>
+      <Fade in={true} timeout={2000}>
+        <Grid container style={{ alignItems: "center" }}>
+          <Grid
+            item
+            xs={12}
+            sm={4}
+            style={{
+              textAlign: matches ? "end" : "center",
+              padding: matches ? 10 : 5,
+            }}
+          >
+            <Typography variant="h1">{t("works.title")}</Typography>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            style={{
+              maxWidth: matches ? "50%" : "100%",
+              textAlign: matches ? "start" : "center",
+              padding: matches ? 10 : 5,
+              paddingRight: matches ? 20 : 5,
+            }}
+          >
+            <Typography variant="h5" style={{ align: "justify" }}>
+              {t(`works.description.part1`)}
+            </Typography>
+          </Grid>
+        </Grid>
+      </Fade>
+    </>
   );
 };

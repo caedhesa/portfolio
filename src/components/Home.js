@@ -24,7 +24,7 @@ export const Home = () => {
               padding: matches ? 10 : 5,
             }}
           >
-            <Typography variant="h1">{t("title")}</Typography>
+            <Typography variant="h1">{t("home.title")}</Typography>
           </Grid>
           <Grid
             item
@@ -37,7 +37,7 @@ export const Home = () => {
             }}
           >
             <Typography variant="h5" style={{ align: "justify" }}>
-              {t(`description.part1`)}
+              {t(`home.description.part1`)}
             </Typography>
           </Grid>
         </Grid>

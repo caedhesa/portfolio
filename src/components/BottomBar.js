@@ -2,7 +2,10 @@ import React from "react";
 import {
   Grid,
   List,
+  Button,
   ListItem,
+  ButtonGroup,
+  Typography,
   ListItemText,
   useMediaQuery,
   IconButton,
@@ -70,34 +73,38 @@ export const BottomBar = (props) => {
         onClose={handleClose}
         anchorOrigin={{
           vertical: matches ? "top" : "bottom",
-          horizontal: "center",
+          horizontal: "right",
         }}
         transformOrigin={{
           vertical: matches ? "bottom" : "top",
-          horizontal: "center",
+          horizontal: "left",
         }}
       >
-        <List
-          component="nav"
-          aria-label="main mailbox folders"
+        <ButtonGroup
+          variant="text"
+          color="transparent"
+          aria-label="primary button group"
           style={{ padding: "0px" }}
         >
-          <ListItem button onClick={() => i18n.changeLanguage("de")}>
-            <ListItemText primary="DE" />
-          </ListItem>
-          <ListItem button>
-            <ListItemText
-              primary="EN"
-              onClick={() => i18n.changeLanguage("en")}
-            />
-          </ListItem>
-          <ListItem button>
-            <ListItemText
-              primary="ES"
-              onClick={() => i18n.changeLanguage("es")}
-            />
-          </ListItem>
-        </List>
+          <Button onClick={() => i18n.changeLanguage("de")}>
+            {" "}
+            <Typography variant="h7" style={{ align: "justify" }}>
+              DE
+            </Typography>
+          </Button>
+          <Button onClick={() => i18n.changeLanguage("en")}>
+            {" "}
+            <Typography variant="h7" style={{ align: "justify" }}>
+              EN
+            </Typography>
+          </Button>
+          <Button onClick={() => i18n.changeLanguage("es")}>
+            {" "}
+            <Typography variant="h7" style={{ align: "justify" }}>
+              ES
+            </Typography>
+          </Button>{" "}
+        </ButtonGroup>
       </Popover>
     </Grid>
   );

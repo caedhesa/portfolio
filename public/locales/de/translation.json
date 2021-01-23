@@ -1,6 +1,28 @@
-{
-    "title": "Hallo!",
-    "description": {
-      "part1": "Vielen Dank, dass Sie sich die Zeit genommen haben, meine persönliche Website zu besuchen. Hier finden Sie einige Informationen darüber, wer ich bin, was ich getan habe und was ich gerne tue"
+  {
+    "home": {
+      "title": "Hallo!",
+      "description": {
+        "part1": "Vielen Dank, dass Sie sich die Zeit genommen haben, meine persönliche Website zu besuchen. Hier finden Sie einige Informationen darüber, wer ich bin, was ich getan habe und was ich gerne tue"
+      }
+    },
+    "works": {
+      "title": "WORKS",
+      "description": {
+        "part1": "Vielen Dank, dass Sie sich die Zeit genommen haben, meine persönliche Website zu besuchen. Hier finden Sie einige Informationen darüber, wer ich bin, was ich getan habe und was ich gerne tue"
+      }
+    },
+  
+    "about": {
+      "title": "ABOUT",
+      "description": {
+        "part1": "Vielen Dank, dass Sie sich die Zeit genommen haben, meine persönliche Website zu besuchen. Hier finden Sie einige Informationen darüber, wer ich bin, was ich getan habe und was ich gerne tue"
+      }
+    },
+    "contact": {
+      "title": "CONTACT",
+      "description": {
+        "part1": "Vielen Dank, dass Sie sich die Zeit genommen haben, meine persönliche Website zu besuchen. Hier finden Sie einige Informationen darüber, wer ich bin, was ich getan habe und was ich gerne tue"
+      }
     }
+  
   }

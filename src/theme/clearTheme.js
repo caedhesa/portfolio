@@ -44,7 +44,7 @@ export const clearTheme = {
     },
     gridContent: {
       padding: "10px",
-      justifyContent: "center",
+      justifyContent: "start",
     },
     gridFluid: {
       flexGrow: 3,

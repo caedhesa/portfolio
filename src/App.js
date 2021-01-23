@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 
 import { Home } from "./components/Home";
+import { Works } from "./components/Works";
+import { About } from "./components/About";
 import { AppBar } from "./components/AppBar";
+import { Contact } from "./components/Contact";
 import { BottomBar } from "./components/BottomBar";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -52,9 +55,9 @@ function App() {
           <Hidden smUp>
             <Grid style={appliedTheme.custom.gridFluid} item xs={12}>
               <Home />
-              {/* <Works />
+              <Works />
               <About />
-              <Contact /> */}
+              <Contact />
             </Grid>
           </Hidden>
           <Hidden xsDown>
