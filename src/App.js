@@ -1,60 +1,65 @@
-import React, {useState} from 'react'
-import { AnimatePresence } from 'framer-motion'
-import { Switch, Route, useLocation } from 'react-router-dom'
-import './App.css';
-import { Projects } from './components/ProjectBox/data'
-import SideBar from './components/SideBar'
-import NavMenu from './components/NavMenu'
-import { ThemeProvider } from 'styled-components'
-import lightTheme from './themes/light'
-import darkTheme from './themes/dark'
-import { Container } from './components/backgroundContainer'
-import NoMatchPage from './pages/404';
-import Home from './pages/Home'
-import Project from './pages/Project'
-import ContactForm from './components/ContactForm'
+import React, { useState } from "react";
 
+import { Home } from "./components/Home";
+import { AppBar } from "./components/AppBar";
+import { BottomBar } from "./components/BottomBar";
 
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import {
+  Grid,
+  Hidden,
+  ThemeProvider,
+  createMuiTheme,
+  responsiveFontSizes,
+} from "@material-ui/core";
+
+import { clearTheme } from "./theme/clearTheme";
+import { darkTheme } from "./theme/darkTheme";
 
 function App() {
-  const location = useLocation()
-  const stored = localStorage.getItem('isLightMode')
-  const [isLightMode, setIsLightMode] = useState(stored === 'true' ? true : false)
-  const [open, setOpen] = useState(false)
-  const toggle = () => setOpen(!open)
-
-
-  const toggleTheme = () => {
-    setIsLightMode(!isLightMode);
-    localStorage.setItem('isLightMode', !isLightMode)
+  function switchTheme() {
+    setTheme(!theme);
   }
 
+  const [theme, setTheme] = useState(true);
+  const appliedTheme = responsiveFontSizes(
+    createMuiTheme(theme ? darkTheme : clearTheme)
+  );
+
   return (
-    <div className="App">
-      <ThemeProvider theme={isLightMode ? lightTheme : darkTheme}>
-        <Container>
-        <SideBar toggle={toggle} open={open} toggleTheme={toggleTheme} isLightMode={isLightMode} />
-        <NavMenu toggle={toggle} open={open} toggleTheme={toggleTheme} isLightMode={isLightMode}></NavMenu>
-          <AnimatePresence exitBeforeEnter>
-            <Switch location={location} key={location.pathname}>
-              <Route exact path='/'>
-                <Home projects={Projects} />
-              </Route>
-              <Route exact path='/contact'>
-                <ContactForm />
-              </Route>
-              <Route exact path='/projects/:handle'>
-                <Project toggle={toggle} open={open} projects={Projects} />
-              </Route>
-              <Route path='*'>
-                <NoMatchPage />
-              </Route>
-            </Switch>
-          </AnimatePresence>
-        </Container>
+    <Router>
+      <ThemeProvider theme={appliedTheme}>
+        <Grid container style={appliedTheme.custom.grid}>
+          <Hidden xsDown>
+            <Grid style={appliedTheme.custom.gridEnds} item xs={12}>
+              <AppBar />
+            </Grid>
+            <Grid style={appliedTheme.custom.gridFluid} item xs={12}>
+              <Switch>
+                <Route exact path="/">
+                  <Home />
+                </Route>
+                <Route path="/works">{/* <Works /> */}</Route>
+                <Route path="/about">{/* <About /> */}</Route>
+                <Route path="/contact">{/* <Contact /> */}</Route>
+              </Switch>
+            </Grid>
+          </Hidden>
+          <Hidden smUp>
+            <Grid style={appliedTheme.custom.gridFluid} item xs={12}>
+              <Home />
+              {/* <Works />
+              <About />
+              <Contact /> */}
+            </Grid>
+          </Hidden>
+          <Grid style={appliedTheme.custom.gridEnds} pb={25} item xs={12}>
+            <BottomBar switchTheme={switchTheme} />
+          </Grid>
+        </Grid>
       </ThemeProvider>
-      
-    </div>
+    </Router>
   );
 }
 
