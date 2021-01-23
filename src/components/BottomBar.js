@@ -1,12 +1,9 @@
 import React from "react";
 import {
   Grid,
-  List,
   Button,
-  ListItem,
   ButtonGroup,
   Typography,
-  ListItemText,
   useMediaQuery,
   IconButton,
   SvgIcon,

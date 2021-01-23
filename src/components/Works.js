@@ -1,31 +1,13 @@
 import React from "react";
 import { useTheme } from "@material-ui/core/styles";
-import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Fade from "@material-ui/core/Fade";
 import Grid from "@material-ui/core/Grid";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTranslation } from "react-i18next";
 
-const useStyles = makeStyles({
-  root: {
-    minWidth: 275,
-  },
-  bullet: {
-    display: "inline-block",
-    margin: "0 2px",
-    transform: "scale(0.8)",
-  },
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
-  },
-});
 export const Works = () => {
   const theme = useTheme();
-  const classes = useStyles();
   console.log(theme);
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
   const { t } = useTranslation();
